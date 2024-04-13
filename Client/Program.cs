@@ -21,10 +21,10 @@ namespace Client
             }
 
             Console.WriteLine("Введите первое число:");
-            int number1 = Convert.ToInt32(Console.ReadLine());
+            double number1 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Введите второе число:");
-            int number2 = Convert.ToInt32(Console.ReadLine());
+            double number2 = Convert.ToDouble(Console.ReadLine());
 
             string url = "";
             switch (operationChoice)
@@ -55,7 +55,7 @@ namespace Client
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
-                    var result = JsonSerializer.Deserialize<int>(responseContent);
+                    var result = JsonSerializer.Deserialize<double>(responseContent);
 
                     Console.WriteLine($"Результат операции: {result}");
                 }
@@ -73,8 +73,8 @@ namespace Client
 
     public class Numbers
     {
-        public int A { get; set; }
-        public int B { get; set; }
+        public double A { get; set; }
+        public double B { get; set; }
     }
 }
 
